@@ -1,0 +1,21 @@
+FROM oraclelinux:8.4
+COPY . /Module
+WORKDIR /Module/files
+RUN mkdir -p ./packet
+RUN yum update -y && \
+    yum -y install python3 \
+    rubygems \
+    ruby-devel \
+    gcc \
+    make \
+    rpm-build \
+    rubygems && \
+    gem install fpm --no-document && \
+    pip3 install -r requirements.txt && \
+    tar xzvf prometheus_flask_exporter-0.22.4.tar.gz
+RUN ["chmod", "+x", "./start.sh"]
+CMD ["./start.sh"]    
+    
+
+      
+

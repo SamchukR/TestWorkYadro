@@ -1,0 +1,23 @@
+FROM ubuntu:20.04
+COPY . /Module
+WORKDIR /Module/files
+RUN mkdir -p ./packet
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && \
+    apt-get install -y python3 \
+    python3-pip \
+    python-all \
+    debhelper \
+    dh-python \
+    python3-stdeb \
+    locales \
+    locales-all && \
+    pip install -r requirements.txt  
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+RUN tar xzvf prometheus_flask_exporter-0.22.4.tar.gz
+RUN ["chmod", "+x", "./start.sh"] 
+CMD ["./start.sh"]
+      
+

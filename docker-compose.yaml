@@ -1,0 +1,22 @@
+version: '3.9'
+services:
+
+  ubuntudeb:
+    build:
+      context: ./source/deb/
+      dockerfile: dockerfile
+    container_name: ubuntudebpack
+    image: ubuntudebpack
+    volumes:
+     - ./readypackets:/Module/files/packet
+
+  oraclerpm:
+    build:
+      context: ./source/rpm/
+      dockerfile: dockerfile
+    container_name: oraclerpmpack
+    image: oraclerpmpack
+    volumes:
+     - ./readypackets:/Module/files/packet
+
+
