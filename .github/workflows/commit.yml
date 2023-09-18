@@ -19,12 +19,12 @@ jobs:
 
     - name: upload deb artifact
       run: cd readypackets
+
     - uses: actions/upload-artifact@main
       with:
         name: deb packet
         path: ./*.deb
 
-    - name: upload rpm packet
     - uses: actions/upload-arcifact@main
       with:
         name: rpm packet
