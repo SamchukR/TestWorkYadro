@@ -16,6 +16,9 @@ jobs:
     - name: build packets
       run: docker-compose -f docker-compose.yaml up -d
 
+    - name: Test container
+      run: docker ps -a
+
     - name: upload deb artifact
       run: |
          cd readypackets
