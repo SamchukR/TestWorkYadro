@@ -8,12 +8,26 @@ on:
    branches: [main]
 
 jobs:
-  build:
+  buildDEB:
     runs-on: ubuntu-latest
+    container: ubuntu:20.04
 
     steps:
     - uses: actions/checkout@v3
     - name: build packets
       run: docker-compose -f docker-compose.yaml up -d
+
+    - name: upload deb artifact
+      run : cd readypackets
+    - uses: actions/upload-artifact@main
+      with:
+        name: deb packet
+        path: ./*.deb
+
+    - name: upload rpm packet
+    - uses: actions/upload-arcifact@main
+      with:
+        name: rpm packet
+        path: ./*.rpm
 
 
