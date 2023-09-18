@@ -18,6 +18,7 @@ jobs:
 
     - name: upload deb artifact
       run: cd readypackets
+           ls
 
     - uses: actions/upload-artifact@main
       with:
