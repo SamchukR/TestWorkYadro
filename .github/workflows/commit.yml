@@ -25,7 +25,7 @@ jobs:
         name: deb packet
         path: ./*.deb
 
-    - uses: actions/upload-arcifact@main
+    - uses: actions/upload-artifact@main
       with:
         name: rpm packet
         path: ./*.rpm
