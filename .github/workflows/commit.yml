@@ -17,7 +17,9 @@ jobs:
       run: docker-compose -f docker-compose.yaml up -d
 
     - name: Test container
-      run: docker ps -a
+      run: |
+         docker logs oraclerpmpack
+         docker logs ubuntudebpack
 
     - name: upload deb artifact
       run: |
