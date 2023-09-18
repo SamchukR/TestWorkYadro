@@ -18,8 +18,6 @@ jobs:
 
     - name: upload deb artifact
       run: cd readypackets
- 
-    - name: test ls
       run: ls
 
 
