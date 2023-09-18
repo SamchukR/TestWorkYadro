@@ -19,12 +19,6 @@ jobs:
     - name: Sleep until packets is ready
       run: sleep 30s
 
-    - name: Test rpm container
-      run: docker logs oraclerpmpack
-
-    - name: Test deb container
-      run: docker logs ubuntudebpack
-
     - name: upload deb artifact
       run: |
          cd readypackets
@@ -33,11 +27,11 @@ jobs:
     - uses: actions/upload-artifact@main
       with:
         name: deb packet
-        path: ./*.deb
+        path: readypackets/*.deb
 
     - uses: actions/upload-artifact@main
       with:
         name: rpm packet
-        path: ./*.rpm
+        path: readypackets/*.rpm
 
 
