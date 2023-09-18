@@ -19,11 +19,6 @@ jobs:
     - name: Sleep until packets is ready
       run: sleep 30s
 
-    - name: upload deb artifact
-      run: |
-         cd readypackets
-         ls
-
     - uses: actions/upload-artifact@main
       with:
         name: deb packet
