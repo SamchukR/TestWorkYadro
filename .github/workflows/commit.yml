@@ -17,7 +17,6 @@ jobs:
       run: docker-compose -f docker-compose.yaml up -d
 
     - name: upload deb artifact
-      run: cd readypackets
       run: |
          cd readypackets
          ls
