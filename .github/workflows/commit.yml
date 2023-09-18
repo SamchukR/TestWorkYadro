@@ -16,10 +16,14 @@ jobs:
     - name: build packets
       run: docker-compose -f docker-compose.yaml up -d
 
-    - name: Test container
-      run: |
-         docker logs oraclerpmpack
-         docker logs ubuntudebpack
+    - name: Sleep until packets is ready
+      run: sleep 30s
+
+    - name: Test rpm container
+      run: docker logs oraclerpmpack
+
+    - name: Test deb container
+      run: docker logs ubuntudebpack
 
     - name: upload deb artifact
       run: |
